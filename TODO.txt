@@ -1,0 +1,25 @@
+First Build the Database... Here is the suggested tables:
+
+Tables:
+
+Machines:
+machine_id (Primary Key)
+hostname (Computer's hostname)
+ip_address (IP address of the machine)
+mac_address (MAC address of the machine)
+status (Online/Offline status)
+last_seen (Timestamp of the last data update)
+uptime (Uptime of the machine)
+
+Hard Drives:
+drive_id (Primary Key)
+machine_id (Foreign Key to link the drive to a machine)
+drive_name (Name or identifier of the drive)
+total_space (Total storage capacity)
+free_space (Available storage space)
+
+Alerts:
+alert_id (Primary Key)
+machine_id (Foreign Key to link the alert to a machine)
+alert_type (Type of alert, e.g., "Offline")
+timestamp (Timestamp when the alert was triggered)
