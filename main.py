@@ -5,7 +5,7 @@ from websocketserver import process_data
 
 
 # Define your server configuration
-server_host = '0.0.0.0'  # Your server's IP address or '0.0.0.0' to listen on all interfaces
+server_host = '127.0.0.1'  # Your server's IP address or '0.0.0.0' to listen on all interfaces
 server_port = 8765  # Choose the appropriate port
 
 

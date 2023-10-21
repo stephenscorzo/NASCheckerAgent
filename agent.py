@@ -1,10 +1,10 @@
-import requests
 import json
 import time
-import psutil  # You may need to install the psutil library using pip
+import websockets  # Use the websockets library for WebSocket communication
+import asyncio
 
 # Define the server URL where you will send the data
-server_url = "https://your-server-url.com/api/endpoint"
+server_url = "ws://127.0.0.1:8765"  # Update the URL to use WebSocket
 
 def collect_system_data():
     # Implement data collection functions
@@ -22,24 +22,16 @@ def collect_system_data():
 
     return data
 
-def send_data_to_server(data):
-    headers = {"Content-Type": "application/json"}
 
-    try:
-        response = requests.post(server_url, data=json.dumps(data), headers=headers)
-
-        if response.status_code == 200:
-            print("Data sent successfully.")
-        else:
-            print(f"Failed to send data. Status code: {response.status_code}")
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error sending data: {str(e)}")
+async def send_data_to_server(data):
+    async with websockets.connect(server_url) as websocket:
+        await websocket.send(json.dumps(data))
+        print("Data sent successfully.")
 
 if __name__ == "__main__":
     while True:
         data = collect_system_data()
-        send_data_to_server(data)
+        asyncio.get_event_loop().run_until_complete(send_data_to_server(data))
 
         # Adjust the interval (in seconds) based on your needs
         time.sleep(60)  # Send data every 1 minute
