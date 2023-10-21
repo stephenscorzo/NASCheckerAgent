@@ -2,7 +2,18 @@ First Build the Database... Here is the suggested tables:
 
 1.)  Basic Structure - Complete
 2.)  Basic Database Complete
-3.)  Main 
+3.)  Main  - receives data at this point and posits into database
+4.)  Agent - Collects Data and sends
+5.)  Collection <-- 
+    A.)  Obtain, machines, hard drives in machines
+    B.)  Only transmit secure data thru network
+6.)  Web Agent:
+    A.)  List all Agents connected to server
+    B.)  Connect via CMD to NAS
+7.)  Alert system:
+    A.)  if NAS is down use phone notification
+    B.)  If NAS size is beyond 95% use phone notification
+8.)  Create a deployable executable
 
 
 Tables:
