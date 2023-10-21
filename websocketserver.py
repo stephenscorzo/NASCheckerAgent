@@ -1,6 +1,7 @@
 import asyncio
 import websockets
 import json
+from databasefunctions import insert_data_into_database
 
 
 async def process_data(websocket, path):
