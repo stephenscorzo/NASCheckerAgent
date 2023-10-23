@@ -10,8 +10,8 @@ def insert_data_into_database(data):
         cursor = conn.cursor()
 
         # Customize the SQL statement based on your schema and data format
-        cursor.execute("INSERT INTO Machines (hostname, ip_address, uptime) VALUES (?, ?, ?)",
-                       (data["hostname"], data["ip_address"], data["uptime"]))
+        cursor.execute("INSERT INTO Machines (hostname, ip_address, uptime, mac_address) VALUES (?, ?, ?, ?)",
+                       (data["hostname"], data["ip_address"], data["uptime"], data['mac_address']))
 
         conn.commit()
         conn.close()

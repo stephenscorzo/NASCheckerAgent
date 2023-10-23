@@ -2,24 +2,24 @@ import json
 import time
 import websockets  # Use the websockets library for WebSocket communication
 import asyncio
+import data_collection
 
 # Define the server URL where you will send the data
 server_url = "ws://127.0.0.1:8765"  # Update the URL to use WebSocket
 
 def collect_system_data():
-    # Implement data collection functions
-    hostname = "ClientHostname"
-    ip_address = "192.168.1.100"
-    uptime = int(time.time())  # Sample uptime in seconds
-    # Add more data collection logic here
+    hostname = data_collection.get_hostname()
+    ip_address = data_collection.get_ip_address()
+    uptime = data_collection.get_uptime()
+    mac_address = data_collection.get_mac_address()
 
     data = {
         "hostname": hostname,
         "ip_address": ip_address,
         "uptime": uptime,
-        # Add more data fields here
+        "mac_address": mac_address,
+        # Add more data fields as needed
     }
-
     return data
 
 
